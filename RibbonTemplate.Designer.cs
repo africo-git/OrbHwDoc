@@ -37,7 +37,7 @@ namespace OrbHwDoc
         {
             this.tabTemplate = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.toggleButton1 = this.Factory.CreateRibbonToggleButton();
+            this.TglBtoDocIdProp = this.Factory.CreateRibbonToggleButton();
             this.tabTemplate.SuspendLayout();
             this.group1.SuspendLayout();
             this.SuspendLayout();
@@ -51,16 +51,17 @@ namespace OrbHwDoc
             // 
             // group1
             // 
-            this.group1.Items.Add(this.toggleButton1);
+            this.group1.Items.Add(this.TglBtoDocIdProp);
             this.group1.Label = "group1";
             this.group1.Name = "group1";
             // 
-            // toggleButton1
+            // TglBtoDocIdProp
             // 
-            this.toggleButton1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.toggleButton1.Label = "toggleButton1";
-            this.toggleButton1.Name = "toggleButton1";
-            this.toggleButton1.ShowImage = true;
+            this.TglBtoDocIdProp.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.TglBtoDocIdProp.Label = "Propiedades Generales";
+            this.TglBtoDocIdProp.Name = "TglBtoDocIdProp";
+            this.TglBtoDocIdProp.ShowImage = true;
+            this.TglBtoDocIdProp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.TglBtoDocIdProp_Click);
             // 
             // RibbonTemplate
             // 
@@ -80,7 +81,7 @@ namespace OrbHwDoc
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tabTemplate;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButton1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton TglBtoDocIdProp;
     }
 
     partial class ThisRibbonCollection

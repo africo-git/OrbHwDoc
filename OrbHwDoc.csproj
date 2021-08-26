@@ -105,6 +105,13 @@
       <DependentUpon>RibbonTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OrbHwDoc.dotx" />
+    <Compile Include="DocIdProp_Uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DocIdProp_Uc.Designer.cs">
+      <DependentUpon>DocIdProp_Uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrbHwDoc.cs" />
     <Compile Include="RibbonTemplate.cs">
       <SubType>Component</SubType>
     </Compile>
