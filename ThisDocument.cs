@@ -18,7 +18,7 @@ namespace OrbHwDoc
         {
             // Es necesario llamar a este procedimiento es esta parte del documento
             // para que funcione bien el "document actionon pane".
-            OrbHwDoc.DocActionTaskPaneIni();    
+            OrbHwDocTool.DocActionTaskPaneIni();    
         }
 
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)

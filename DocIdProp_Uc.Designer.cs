@@ -29,10 +29,34 @@ namespace OrbHwDoc
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.MyDocIdProp_Uc_Wpf = new DocIdProp_Uc_Wpf();
+            this.SuspendLayout();
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(0, 0);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(422, 641);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.MyDocIdProp_Uc_Wpf;
+            // 
+            // DocIdProp_Uc
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.elementHost1);
+            this.Name = "DocIdProp_Uc";
+            this.Size = new System.Drawing.Size(422, 641);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private DocIdProp_Uc_Wpf MyDocIdProp_Uc_Wpf;
     }
 }

@@ -10,7 +10,7 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace OrbHwDoc
 {
-    public static class OrbHwDoc
+    public static class OrbHwDocTool
     {
         public static void DocActionTaskPaneIni()
         {

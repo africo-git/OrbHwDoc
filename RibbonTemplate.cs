@@ -9,7 +9,7 @@ namespace OrbHwDoc
 {
     public partial class RibbonTemplate
     {
-        DocIdProp_Uc MyDocIdProp_Uc = new DocIdProp_Uc();
+        private DocIdProp_Uc MyDocIdProp_Uc = new DocIdProp_Uc();
 
         private void RibbonTemplate_Load(object sender, RibbonUIEventArgs e)
         {
