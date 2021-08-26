@@ -18,5 +18,33 @@ namespace OrbHwDoc
             Globals.ThisDocument.ActionsPane.Controls.Clear();  // Quita todos los controles.
             Globals.ThisDocument.Application.TaskPanes[Word.WdTaskPanes.wdTaskPaneDocumentActions].Visible = false;
         }
+
+        #region PROPIEDADES DEL DOCUMENTO
+        public static void NewDocCustomProperty(string prop, Office.MsoDocProperties type, object content)
+        {
+            Office.DocumentProperties toolDocCustomProps =
+                Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
+
+            if (!CustomPropertyExist(prop))
+                toolDocCustomProps.Add(prop, false, type, content);
+        }
+
+        public static Boolean CustomPropertyExist(string propName)
+        {
+            Office.DocumentProperties toolDocCustomProps =
+                Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
+
+            try
+            {
+                Office.DocumentProperty temp = toolDocCustomProps[propName];
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
+
     }
 }
