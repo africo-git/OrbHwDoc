@@ -101,7 +101,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="RibbonTemplate.resx">
+      <DependentUpon>RibbonTemplate.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="OrbHwDoc.dotx" />
+    <Compile Include="RibbonTemplate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonTemplate.Designer.cs">
+      <DependentUpon>RibbonTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThisDocument.cs">
       <DependentUpon>OrbHwDoc.dotx</DependentUpon>
     </Compile>
