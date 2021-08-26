@@ -37,7 +37,7 @@ namespace OrbHwDoc
         {
             this.tabTemplate = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.splitButton1 = this.Factory.CreateRibbonSplitButton();
+            this.toggleButton1 = this.Factory.CreateRibbonToggleButton();
             this.tabTemplate.SuspendLayout();
             this.group1.SuspendLayout();
             this.SuspendLayout();
@@ -51,15 +51,16 @@ namespace OrbHwDoc
             // 
             // group1
             // 
-            this.group1.Items.Add(this.splitButton1);
+            this.group1.Items.Add(this.toggleButton1);
             this.group1.Label = "group1";
             this.group1.Name = "group1";
             // 
-            // splitButton1
+            // toggleButton1
             // 
-            this.splitButton1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.splitButton1.Label = "splitButton1";
-            this.splitButton1.Name = "splitButton1";
+            this.toggleButton1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.toggleButton1.Label = "toggleButton1";
+            this.toggleButton1.Name = "toggleButton1";
+            this.toggleButton1.ShowImage = true;
             // 
             // RibbonTemplate
             // 
@@ -79,7 +80,7 @@ namespace OrbHwDoc
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tabTemplate;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton splitButton1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButton1;
     }
 
     partial class ThisRibbonCollection
