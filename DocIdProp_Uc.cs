@@ -46,5 +46,31 @@ namespace OrbHwDoc
             if (OrbHwDocTool.CustomPropertyExist("orbDocIssueDate"))
                 this.MyDocIdProp_Uc_Wpf.dateOrbDocIssueDate.SelectedDate = (DateTime)myCustomProp["orbDocIssueDate"].Value;
         }
+
+        public void SaveChange()
+        {
+            Office.DocumentProperties myCustomProp =
+                Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
+
+            if (OrbHwDocTool.CustomPropertyExist("orbDocCode"))
+                myCustomProp["orbDocCode"].Value = MyDocIdProp_Uc_Wpf.txtOrbDocCode.Text;
+
+            if (OrbHwDocTool.CustomPropertyExist("orbDocTittle"))
+                myCustomProp["orbDocTittle"].Value = MyDocIdProp_Uc_Wpf.txtOrbDocTittle.Text;
+
+            if (OrbHwDocTool.CustomPropertyExist("orbDocShortTittle"))
+                myCustomProp["orbDocShortTittle"].Value = MyDocIdProp_Uc_Wpf.txtOrbDocShortTittle.Text;
+
+            if (OrbHwDocTool.CustomPropertyExist("orbDocClass"))
+                myCustomProp["orbDocClass"].Value = MyDocIdProp_Uc_Wpf.txtOrbDocClass.Text;
+
+            if (OrbHwDocTool.CustomPropertyExist("orbDocSubclass"))
+                myCustomProp["orbDocSubclass"].Value = MyDocIdProp_Uc_Wpf.txtOrbDocSubclass.Text;
+
+            if (OrbHwDocTool.CustomPropertyExist("orbDocIssueDate"))
+                myCustomProp["orbDocIssueDate"].Value = MyDocIdProp_Uc_Wpf.dateOrbDocIssueDate.SelectedDate;
+
+            OrbHwDocTool.UpdateAllDocFields();
+        }
     }
 }

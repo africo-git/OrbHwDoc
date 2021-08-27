@@ -32,7 +32,7 @@ namespace OrbHwDoc
 
         private void CmdSaveCustomDocProperties_Click(object sender, RoutedEventArgs e)
         {
-
+            ThisDocument.MyDocIdProp_Uc.SaveChange();
         }
     }
 }
