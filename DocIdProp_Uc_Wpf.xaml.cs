@@ -27,7 +27,7 @@ namespace OrbHwDoc
 
         private void CmdUpdateFormFields_Click(object sender, RoutedEventArgs e)
         {
-
+            ThisDocument.MyDocIdProp_Uc.UpdateFrom();
         }
 
         private void CmdSaveCustomDocProperties_Click(object sender, RoutedEventArgs e)

@@ -20,6 +20,8 @@ namespace OrbHwDoc
             {
                 Globals.ThisDocument.ActionsPane.Controls.Add(ThisDocument.MyDocIdProp_Uc);
                 Globals.ThisDocument.Application.TaskPanes[Word.WdTaskPanes.wdTaskPaneDocumentActions].Visible = true;
+
+                ThisDocument.MyDocIdProp_Uc.UpdateFrom();
             }
             else
             {
