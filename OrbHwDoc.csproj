@@ -133,6 +133,9 @@
     <EmbeddedResource Include="DocIdProp_Uc.resx">
       <DependentUpon>DocIdProp_Uc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DocVerCtrl_Uc.resx">
+      <DependentUpon>DocVerCtrl_Uc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RibbonTemplate.resx">
       <DependentUpon>RibbonTemplate.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +148,15 @@
     </Compile>
     <Compile Include="DocIdProp_Uc_Wpf.xaml.cs">
       <DependentUpon>DocIdProp_Uc_Wpf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocVerCtrl_Uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DocVerCtrl_Uc.Designer.cs">
+      <DependentUpon>DocVerCtrl_Uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocVerCtrl_Uc_Wpf.xaml.cs">
+      <DependentUpon>DocVerCtrl_Uc_Wpf.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrbHwDocTool.cs" />
     <Compile Include="RibbonTemplate.cs">
@@ -188,6 +200,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocVerCtrl_Uc_Wpf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -209,7 +225,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="OrbHwDoc.dotx" HostPackage="{18A3A5AC-5778-4778-901C-ADAAC08E910A}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="DOT" Language="CS" TemplatesPath="VSTOTemplates" DebugInfoExeName="C:\Program Files\Microsoft Office\root\Office16\winword.exe" DebugInfoCommandLine="/w /z&quot;[$OUTPUT]OrbHwDoc.dotx&quot;" />
         <Host Name="Word Document" Path=".\OrbHwDoc.dotx" GeneratedCodeNamespace="OrbHwDoc" PublishedHash="CFECFF3FB805E9A295392C4C85A42160CA201773">
-          <HostItem Name="ThisDocument" Code="ThisDocument.cs" CanonicalName="ThisDocument" Blueprint="ThisDocument.Designer.xml" GeneratedCode="ThisDocument.Designer.cs" PublishedHash="2A226A00017B5FD9B75531E582E719811A62E64B" />
+          <HostItem Name="ThisDocument" Code="ThisDocument.cs" CanonicalName="ThisDocument" PublishedHash="2A226A00017B5FD9B75531E582E719811A62E64B" Blueprint="ThisDocument.Designer.xml" GeneratedCode="ThisDocument.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
