@@ -43,9 +43,48 @@ namespace OrbHwDoc
             if (!OrbHwDocTool.CustomPropertyExist("orbCif"))
                 OrbHwDocTool.NewDocCustomProperty("orbCif", Office.MsoDocProperties.msoPropertyTypeString, "CIF: B31954506");
 
+            // Código del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocCode"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocCode", Office.MsoDocProperties.msoPropertyTypeString, "Document Code");
+
+            // Título del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocTittle"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocTittle", Office.MsoDocProperties.msoPropertyTypeString, "Document Tittle");
+
+            // Título corto del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocShortTittle"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocShortTittle", Office.MsoDocProperties.msoPropertyTypeString, "Document Short Tittle");
+
+            //Clase del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocClass"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocClass", Office.MsoDocProperties.msoPropertyTypeString, "Class");
+
+            //Subclase del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocSubclass"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocSubclass", Office.MsoDocProperties.msoPropertyTypeString, "Subclass");
+
+            //Edición del documeto
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocMajorIssue"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocMajorIssue", Office.MsoDocProperties.msoPropertyTypeNumber, "1");
+
+            //Revisión del documeto
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocMinorIssue"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocMinorIssue", Office.MsoDocProperties.msoPropertyTypeNumber, "0");
+
+            //Fecha general de versión del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssueDate"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocIssueDate", Office.MsoDocProperties.msoPropertyTypeDate, DateTime.Now);
+
+            //Motivo de la versión 1.0 (inicial) del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssue1-0Reson"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocIssue1-0Reson", Office.MsoDocProperties.msoPropertyTypeString, "Document generation");
+
+            //Fecha de la versión 1.0 (inicial) del documento
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssue1-0Date"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocIssue1-0Date", Office.MsoDocProperties.msoPropertyTypeDate, DateTime.Now);
+
             // Actualizamos todos los campos del documento
             OrbHwDocTool.UpdateAllDocFields();
-
         }
 
         public static void NewDocCustomProperty(string prop, Office.MsoDocProperties type, object content)
