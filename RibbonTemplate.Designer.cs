@@ -36,30 +36,31 @@ namespace OrbHwDoc
         private void InitializeComponent()
         {
             this.tabTemplate = this.Factory.CreateRibbonTab();
-            this.group1 = this.Factory.CreateRibbonGroup();
+            this.grpPropDoc = this.Factory.CreateRibbonGroup();
             this.TglBtoDocIdProp = this.Factory.CreateRibbonToggleButton();
             this.tabTemplate.SuspendLayout();
-            this.group1.SuspendLayout();
+            this.grpPropDoc.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabTemplate
             // 
             this.tabTemplate.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tabTemplate.Groups.Add(this.group1);
+            this.tabTemplate.Groups.Add(this.grpPropDoc);
             this.tabTemplate.Label = "ORBITAL - HW";
             this.tabTemplate.Name = "tabTemplate";
             // 
-            // group1
+            // grpPropDoc
             // 
-            this.group1.Items.Add(this.TglBtoDocIdProp);
-            this.group1.Label = "group1";
-            this.group1.Name = "group1";
+            this.grpPropDoc.Items.Add(this.TglBtoDocIdProp);
+            this.grpPropDoc.Label = "Propiedades documento";
+            this.grpPropDoc.Name = "grpPropDoc";
             // 
             // TglBtoDocIdProp
             // 
             this.TglBtoDocIdProp.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.TglBtoDocIdProp.Label = "Propiedades Generales";
             this.TglBtoDocIdProp.Name = "TglBtoDocIdProp";
+            this.TglBtoDocIdProp.OfficeImageId = "FormFieldProperties";
             this.TglBtoDocIdProp.ShowImage = true;
             this.TglBtoDocIdProp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.TglBtoDocIdProp_Click);
             // 
@@ -71,8 +72,8 @@ namespace OrbHwDoc
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.RibbonTemplate_Load);
             this.tabTemplate.ResumeLayout(false);
             this.tabTemplate.PerformLayout();
-            this.group1.ResumeLayout(false);
-            this.group1.PerformLayout();
+            this.grpPropDoc.ResumeLayout(false);
+            this.grpPropDoc.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -80,7 +81,7 @@ namespace OrbHwDoc
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tabTemplate;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpPropDoc;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton TglBtoDocIdProp;
     }
 
