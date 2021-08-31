@@ -38,6 +38,7 @@ namespace OrbHwDoc
             this.tabTemplate = this.Factory.CreateRibbonTab();
             this.grpPropDoc = this.Factory.CreateRibbonGroup();
             this.TglBtoDocIdProp = this.Factory.CreateRibbonToggleButton();
+            this.TglBtoCtrlVer = this.Factory.CreateRibbonToggleButton();
             this.tabTemplate.SuspendLayout();
             this.grpPropDoc.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@ namespace OrbHwDoc
             // grpPropDoc
             // 
             this.grpPropDoc.Items.Add(this.TglBtoDocIdProp);
+            this.grpPropDoc.Items.Add(this.TglBtoCtrlVer);
             this.grpPropDoc.Label = "Propiedades documento";
             this.grpPropDoc.Name = "grpPropDoc";
             // 
@@ -63,6 +65,15 @@ namespace OrbHwDoc
             this.TglBtoDocIdProp.OfficeImageId = "FormFieldProperties";
             this.TglBtoDocIdProp.ShowImage = true;
             this.TglBtoDocIdProp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.TglBtoDocIdProp_Click);
+            // 
+            // TglBtoCtrlVer
+            // 
+            this.TglBtoCtrlVer.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.TglBtoCtrlVer.Label = "Control de Versiones";
+            this.TglBtoCtrlVer.Name = "TglBtoCtrlVer";
+            this.TglBtoCtrlVer.OfficeImageId = "DataFormAddRecord";
+            this.TglBtoCtrlVer.ShowImage = true;
+            this.TglBtoCtrlVer.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.TglBtoCtrlVer_Click);
             // 
             // RibbonTemplate
             // 
@@ -83,6 +94,7 @@ namespace OrbHwDoc
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tabTemplate;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpPropDoc;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton TglBtoDocIdProp;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton TglBtoCtrlVer;
     }
 
     partial class ThisRibbonCollection
