@@ -14,8 +14,19 @@ namespace OrbHwDoc
     {
         public static void DocActionTaskPaneIni()
         {
-            Globals.ThisDocument.ActionsPane.Controls.Add(new Label());
-            Globals.ThisDocument.ActionsPane.Controls.Clear();  // Quita todos los controles.
+            // Carga los controles en el ActionsPane
+            Globals.ThisDocument.ActionsPane.Controls.Add(Globals.ThisDocument.myDocIdProp_Uc);
+            Globals.ThisDocument.ActionsPane.Controls.Add(Globals.ThisDocument.myDocVerCtrl_Uc);
+
+            // Almacena los índices de los controles cargados en el ActionsPane
+            int myDocIdProp_Uc_index = Globals.ThisDocument.ActionsPane.Controls.GetChildIndex(Globals.ThisDocument.myDocIdProp_Uc);
+            int myDocVerCtrl_Uc_index = Globals.ThisDocument.ActionsPane.Controls.GetChildIndex(Globals.ThisDocument.myDocVerCtrl_Uc);
+
+            // Oculta todos los controles en el ActionsPane
+            Globals.ThisDocument.ActionsPane.Controls[myDocIdProp_Uc_index].Visible = false;
+            Globals.ThisDocument.ActionsPane.Controls[myDocVerCtrl_Uc_index].Visible = false;
+
+            // Oculta el Document Actions Task Pane
             Globals.ThisDocument.Application.TaskPanes[Word.WdTaskPanes.wdTaskPaneDocumentActions].Visible = false;
         }
 

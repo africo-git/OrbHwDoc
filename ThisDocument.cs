@@ -14,7 +14,8 @@ namespace OrbHwDoc
 {
     public partial class ThisDocument
     {
-        private static DocIdProp_Uc myDocIdProp_Uc = new DocIdProp_Uc();
+        public DocIdProp_Uc myDocIdProp_Uc = new DocIdProp_Uc();
+        public DocVerCtrl_Uc myDocVerCtrl_Uc = new DocVerCtrl_Uc();
 
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
@@ -28,13 +29,6 @@ namespace OrbHwDoc
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)
         {
         }
-
-        #region Propiedades de la clase
-        public static DocIdProp_Uc MyDocIdProp_Uc
-        {
-            get => myDocIdProp_Uc;
-        }
-        #endregion
 
         #region Código generado por el Diseñador de VSTO
 

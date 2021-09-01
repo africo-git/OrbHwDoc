@@ -27,12 +27,12 @@ namespace OrbHwDoc
 
         private void CmdUpdateFormFields_Click(object sender, RoutedEventArgs e)
         {
-            ThisDocument.MyDocIdProp_Uc.UpdateFrom();
+            Globals.ThisDocument.myDocIdProp_Uc.UpdateFrom();
         }
 
         private void CmdSaveCustomDocProperties_Click(object sender, RoutedEventArgs e)
         {
-            ThisDocument.MyDocIdProp_Uc.SaveChange();
+            Globals.ThisDocument.myDocIdProp_Uc.SaveChange();
         }
     }
 }
