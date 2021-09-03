@@ -30,113 +30,128 @@ namespace OrbHwDoc
             Globals.ThisDocument.Application.TaskPanes[Word.WdTaskPanes.wdTaskPaneDocumentActions].Visible = false;
         }
 
-        #region PROPIEDADES DEL DOCUMENTO
         public static void RestoreFundamentalProp()
         {
+            // Se utilizará para acceder a las propiedades personalizadas del documento
+            Office.DocumentProperties toolDocCustomProps =
+                Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
 
-            // Compañía
+            int lastIssueNum;       // Contendrá el número identificativo de la versión actual (cero para la inicial)
+
+            #region PROPIEDADES GENERALES DE IDENTIFICACIÓN
             if (!OrbHwDocTool.CustomPropertyExist("orbCompany"))
                 OrbHwDocTool.NewDocCustomProperty("orbCompany", Office.MsoDocProperties.msoPropertyTypeString, "Orbital Sistemas Aeroespaciales, S.L.");
 
-            // Dirección 1 Compañía
             if (!OrbHwDocTool.CustomPropertyExist("orbCompanyAddress1"))
                 OrbHwDocTool.NewDocCustomProperty("orbCompanyAddress1", Office.MsoDocProperties.msoPropertyTypeString, "Carretera de Artica 29, 3ª Planta");
 
-            // Dirección 2 Compañía
             if (!OrbHwDocTool.CustomPropertyExist("orbCompanyAddress2"))
                 OrbHwDocTool.NewDocCustomProperty("orbCompanyAddress2", Office.MsoDocProperties.msoPropertyTypeString, "31013 Artica, Navarra");
 
-            // Dirección 3 Compañía
             if (!OrbHwDocTool.CustomPropertyExist("orbCompanyAddress3"))
                 OrbHwDocTool.NewDocCustomProperty("orbCompanyAddress3", Office.MsoDocProperties.msoPropertyTypeString, "SPAIN");
 
-            // CIF Compañía
             if (!OrbHwDocTool.CustomPropertyExist("orbCif"))
                 OrbHwDocTool.NewDocCustomProperty("orbCif", Office.MsoDocProperties.msoPropertyTypeString, "CIF: B31954506");
 
-            // Código del documento
             if (!OrbHwDocTool.CustomPropertyExist("orbDocCode"))
                 OrbHwDocTool.NewDocCustomProperty("orbDocCode", Office.MsoDocProperties.msoPropertyTypeString, "Document Code");
 
-            // Título del documento
             if (!OrbHwDocTool.CustomPropertyExist("orbDocTittle"))
                 OrbHwDocTool.NewDocCustomProperty("orbDocTittle", Office.MsoDocProperties.msoPropertyTypeString, "Document Tittle");
 
-            // Título corto del documento
             if (!OrbHwDocTool.CustomPropertyExist("orbDocShortTittle"))
                 OrbHwDocTool.NewDocCustomProperty("orbDocShortTittle", Office.MsoDocProperties.msoPropertyTypeString, "Document Short Tittle");
 
-            //Clase del documento
             if (!OrbHwDocTool.CustomPropertyExist("orbDocClass"))
                 OrbHwDocTool.NewDocCustomProperty("orbDocClass", Office.MsoDocProperties.msoPropertyTypeString, "Class");
 
-            //Subclase del documento
             if (!OrbHwDocTool.CustomPropertyExist("orbDocSubclass"))
                 OrbHwDocTool.NewDocCustomProperty("orbDocSubclass", Office.MsoDocProperties.msoPropertyTypeString, "Subclass");
 
-            //Edición del documeto
-            if (!OrbHwDocTool.CustomPropertyExist("orbDocMajorIssue"))
-                OrbHwDocTool.NewDocCustomProperty("orbDocMajorIssue", Office.MsoDocProperties.msoPropertyTypeNumber, "1");
+            #endregion
 
-            //Revisión del documeto
-            if (!OrbHwDocTool.CustomPropertyExist("orbDocMinorIssue"))
-                OrbHwDocTool.NewDocCustomProperty("orbDocMinorIssue", Office.MsoDocProperties.msoPropertyTypeNumber, "0");
+            #region PROPIEDADES DE LA VERSIÓN INICIAL (1.0)
 
-            //Fecha general de versión del documento
+            // En el caso de un documento nuevo hay que generar una primera versión de partida
+            // Creamos la propiedad contadora de versiones y la inicializamos a cero
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssueNum"))
+            {
+                lastIssueNum = 0;
+                OrbHwDocTool.NewDocCustomProperty("orbDocIssueNum", Office.MsoDocProperties.msoPropertyTypeNumber, lastIssueNum);
+
+                /*** EDICION (MAJOR) ***/
+                if (!OrbHwDocTool.CustomPropertyExist("orbDocIssueMajor_0"))
+                    OrbHwDocTool.NewDocCustomProperty("orbDocIssueMajor_0", Office.MsoDocProperties.msoPropertyTypeNumber, 1);
+
+                /*** REVISIÓN (MINOR) ***/
+                if (!OrbHwDocTool.CustomPropertyExist("orbDocIssueMinor_0"))
+                    OrbHwDocTool.NewDocCustomProperty("orbDocIssueMinor_0", Office.MsoDocProperties.msoPropertyTypeNumber, 0);
+
+                /*** FECHA ***/
+                if (!OrbHwDocTool.CustomPropertyExist("orbDocIssueDate_0"))
+                    OrbHwDocTool.NewDocCustomProperty("orbDocIssueDate_0", Office.MsoDocProperties.msoPropertyTypeDate, 
+                        DateTime.Now);
+
+                /*** MOTIVO ***/
+                    OrbHwDocTool.NewDocCustomProperty("orbDocIssuerReason_0", Office.MsoDocProperties.msoPropertyTypeString,
+                        "New document.");
+            }
+            #endregion
+
+            #region PROPIEDADES DE LA VERSION ACTUAL DEL DOCUMENTO
+
+            /*** VERSION (MAJOR.MINOR) ***/
+            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssue"))
+                OrbHwDocTool.NewDocCustomProperty("orbDocIssue", Office.MsoDocProperties.msoPropertyTypeString, "1.0");
+
+            /*** FECHA ***/
             if (!OrbHwDocTool.CustomPropertyExist("orbDocIssueDate"))
-                OrbHwDocTool.NewDocCustomProperty("orbDocIssueDate", Office.MsoDocProperties.msoPropertyTypeDate, DateTime.Now);
+                OrbHwDocTool.NewDocCustomProperty("orbDocIssueDate", Office.MsoDocProperties.msoPropertyTypeDate,
+                    DateTime.Now);
 
-            //Motivo de la versión 1.0 (inicial) del documento
-            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssue1-0Reson"))
-                OrbHwDocTool.NewDocCustomProperty("orbDocIssue1-0Reson", Office.MsoDocProperties.msoPropertyTypeString, "Document generation");
+            #endregion
 
-            //Fecha de la versión 1.0 (inicial) del documento
-            if (!OrbHwDocTool.CustomPropertyExist("orbDocIssue1-0Date"))
-                OrbHwDocTool.NewDocCustomProperty("orbDocIssue1-0Date", Office.MsoDocProperties.msoPropertyTypeDate, DateTime.Now);
-
-            // Actualizamos todos los campos del documento
-            OrbHwDocTool.UpdateAllDocFields();
+            OrbHwDocTool.UpdateAllDocFields();  // Actualizamos todos los campos del documento
         }
 
         public static void NewDocCustomProperty(string prop, Office.MsoDocProperties type, object content)
-        {
-            Office.DocumentProperties toolDocCustomProps =
-                Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
+{
+Office.DocumentProperties toolDocCustomProps =
+    Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
 
-            if (!CustomPropertyExist(prop))
-                toolDocCustomProps.Add(prop, false, type, content);
-        }
+if (!CustomPropertyExist(prop))
+    toolDocCustomProps.Add(prop, false, type, content);
+}
 
         public static Boolean CustomPropertyExist(string propName)
-        {
-            Office.DocumentProperties toolDocCustomProps =
-                Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
+{
+Office.DocumentProperties toolDocCustomProps =
+    Globals.ThisDocument.CustomDocumentProperties as Office.DocumentProperties;
 
-            try
-            {
-                Office.DocumentProperty temp = toolDocCustomProps[propName];
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+try
+{
+    Office.DocumentProperty temp = toolDocCustomProps[propName];
+    return true;
+}
+catch
+{
+    return false;
+}
+}
 
         public static void UpdateAllDocFields()
-        {
-            foreach (Word.Range range in Globals.ThisDocument.StoryRanges)
-            {
-                Word.Range r = range;
+{
+foreach (Word.Range range in Globals.ThisDocument.StoryRanges)
+{
+    Word.Range r = range;
 
-                while (r != null)
-                {
-                    r.Fields.Update();
-                    r = r.NextStoryRange;       // return null at the end.
-                }
-            }
-        }
-        #endregion
-
+    while (r != null)
+    {
+        r.Fields.Update();
+        r = r.NextStoryRange;       // return null at the end.
+    }
+}
+}
     }
 }
